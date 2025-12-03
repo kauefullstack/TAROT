@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas da Lua - Taróloga Profissional | Consultas Online</title>
+    <meta name="description" content="Taróloga Cartas da Lua oferece consultas de tarot online profissionais. Tarot do amor, geral, tiragem de 3 cartas e mesa radiônica. Agende sua consulta.">
+    <meta name="keywords" content="tarot, taróloga, consulta online, tarot do amor, cartas, espiritualidade">
+    <link rel="canonical" href="https://cartasdalua.com">
+    <meta name="geo.region" content="BR">
+    <meta property="og:title" content="Cartas da Lua - Taróloga Profissional">
+    <meta property="og:description" content="Desvende os mistérios do seu destino através da sabedoria ancestral das cartas">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(58, 32, 91, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #3A205B 0%, #2D1B69 50%, #3A205B 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://readdy.ai/api/search-image?query=mystical%20tarot%20cards%20floating%20in%20cosmic%20purple%20space%20with%20golden%20light%20rays%2C%20magical%20atmosphere%2C%20elegant%20and%20sophisticated%2C%20dark%20purple%20background%20with%20golden%20sparkles%2C%20professional%20tarot%20reading%20setup&width=1920&height=1080&seq=hero-bg&orientation=landscape') center/cover;
+            opacity: 0.3;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(201, 168, 106, 0.2) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: block;
+            object-fit: cover;
+            position: relative;
+        }
+        
+        .golden-glow {
+            position: relative;
+        }
+        
+        .golden-glow::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #C9A86A, #D7B98A, #A6834A, #C9A86A);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.7;
+            filter: blur(8px);
+            animation: golden-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes golden-pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .fade-in-delay-1 { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        .fade-in-delay-3 { animation-delay: 0.6s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #C9A86A;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #3A205B;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #C9A86A, #D7B98A);
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(58, 32, 91, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 106, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(58, 32, 91, 0.2);
+        }
+        
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #3A205B, #2D1B69);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C9A86A;
+            font-size: 1.5rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #3A205B, #2D1B69);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #C9A86A;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stars {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+            color: #C9A86A;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #C9A86A, #D7B98A);
+            color: #3A205B;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 168, 106, 0.4);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .bg-gray-50 {
+            background-color: #f9fafb;
+        }
+        
+        .bg-purple-900 {
+            background: linear-gradient(135deg, #3A205B, #2D1B69);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        .text-gray-700 {
+            color: #374151;
+        }
+        
+        .text-gray-300 {
+            color: #d1d5db;
+        }
+        
+        .text-gray-400 {
+            color: #9ca3af;
+        }
+        
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .space-x-6 > * + * {
+            margin-left: 1.5rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #C9A86A;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (min-width: 768px) {
+            .hidden { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <div class="playfair" style="font-size: 1.5rem; font-weight: bold; color: white;">
+                    Cartas da Lua
+                </div>
+                <ul class="nav-links hidden">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="fade-in">
+                <img 
+                    src="https://readdy.ai/api/search-image?query=elegant%20mystical%20woman%20with%20tarot%20cards%2C%20professional%20tarot%20reader%20portrait%2C%20purple%20and%20golden%20lighting%2C%20sophisticated%20and%20magical%20atmosphere%2C%20cosmic%20background%20with%20stars&width=400&height=400&seq=tarot-reader&orientation=squarish"
+                    alt="Taróloga Cartas da Lua"
+                    class="profile-img golden-glow"
+                />
+            </div>
+            
+            <h1 class="playfair fade-in fade-in-delay-1" style="font-size: 3.5rem; font-weight: bold; margin-bottom: 1.5rem;">
+                Taróloga Cartas da Lua
+            </h1>
+            
+            <p class="fade-in fade-in-delay-2" style="font-size: 1.25rem; margin-bottom: 2rem; color: #e5e7eb;">
+                Desvende os mistérios do seu destino através da sabedoria ancestral das cartas
+            </p>
+            
+            <div class="fade-in fade-in-delay-3">
+                <a 
+                    href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary"
+                    style="font-size: 1.125rem; padding: 1rem 2rem;"
+                >
+                    Agendar Consulta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="section bg-gray-50">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 class="section-title playfair">Sobre Mim</h2>
+                <div style="font-size: 1.125rem; color: #374151; line-height: 1.8;">
+                    <p class="mb-6">
+                        Há mais de 15 anos dedico minha vida ao estudo das artes divinatórias e ao auxílio daqueles que buscam clareza e direcionamento. Através das cartas do tarot, ofereço orientação espiritual com seriedade, ética e profissionalismo.
+                    </p>
+                    <p class="mb-6">
+                        Minha missão é iluminar os caminhos obscuros da vida, trazendo esperança e sabedoria para cada consulente. Cada leitura é única e personalizada, respeitando sempre o livre arbítrio e a jornada individual de cada pessoa.
+                    </p>
+                    <p>
+                        Permita que as cartas revelem os segredos que o universo tem para você.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="section">
+        <div class="container">
+            <h2 class="section-title playfair">Meus Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ri-heart-3-line"></i>
+                    </div>
+                    <h3 class="playfair" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #3A205B;">Tarot do Amor</h3>
+                    <p style="color: #6b7280; margin-bottom: 1rem;">Descubra os caminhos do coração e encontre respostas sobre relacionamentos</p>
+                    <div class="price">R$ 45</div>
+                    <a 
+                        href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary"
+                        style="font-size: 0.875rem; padding: 0.75rem 1.5rem;"
+                    >
+                        Agendar
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ri-magic-line"></i>
+                    </div>
+                    <h3 class="playfair" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #3A205B;">Tarot Geral</h3>
+                    <p style="color: #6b7280; margin-bottom: 1rem;">Orientação completa sobre todos os aspectos da sua vida</p>
+                    <div class="price">R$ 60</div>
+                    <a 
+                        href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary"
+                        style="font-size: 0.875rem; padding: 0.75rem 1.5rem;"
+                    >
+                        Agendar
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ri-stack-line"></i>
+                    </div>
+                    <h3 class="playfair" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #3A205B;">Tiragem de 3 Cartas</h3>
+                    <p style="color: #6b7280; margin-bottom: 1rem;">Consulta rápida para questões específicas do momento</p>
+                    <div class="price">R$ 35</div>
+                    <a 
+                        href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary"
+                        style="font-size: 0.875rem; padding: 0.75rem 1.5rem;"
+                    >
+                        Agendar
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="ri-compass-3-line"></i>
+                    </div>
+                    <h3 class="playfair" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #3A205B;">Mesa Radiônica</h3>
+                    <p style="color: #6b7280; margin-bottom: 1rem;">Limpeza energética e harmonização dos chakras</p>
+                    <div class="price">R$ 80</div>
+                    <a 
+                        href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary"
+                        style="font-size: 0.875rem; padding: 0.75rem 1.5rem;"
+                    >
+                        Agendar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="section bg-purple-900">
+        <div class="container">
+            <h2 class="section-title playfair text-white">Depoimentos</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p class="mb-4" style="font-style: italic;">"As consultas da Cartas da Lua mudaram minha vida. Precisão incrível!"</p>
+                    <div style="font-weight: 600; color: #C9A86A;">- Maria Silva</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p class="mb-4" style="font-style: italic;">"Profissional séria e dedicada. Recomendo para todos que buscam orientação."</p>
+                    <div style="font-weight: 600; color: #C9A86A;">- João Santos</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p class="mb-4" style="font-style: italic;">"Encontrei clareza e direção através das cartas. Gratidão eterna!"</p>
+                    <div style="font-weight: 600; color: #C9A86A;">- Ana Costa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendamento Section -->
+    <section id="contato" class="section bg-gray-50">
+        <div class="container text-center">
+            <h2 class="section-title playfair">Agende Sua Consulta</h2>
+            <p style="font-size: 1.25rem; color: #374151; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Estou aqui para guiá-la através das mensagens que o universo tem para você. 
+                Entre em contato e descubra o que as cartas revelam sobre seu futuro.
+            </p>
+            <a 
+                href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+                style="font-size: 1.25rem; padding: 1rem 3rem;"
+            >
+                <i class="ri-whatsapp-line" style="margin-right: 0.5rem;"></i>
+                Falar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-900 text-white" style="padding: 3rem 0;">
+        <div class="container">
+            <div class="text-center">
+                <div class="playfair mb-4" style="font-size: 2rem; font-weight: bold;">Cartas da Lua</div>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" style="font-size: 1.5rem; color: white; text-decoration: none; transition: color 0.3s ease;">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" style="font-size: 1.5rem; color: white; text-decoration: none; transition: color 0.3s ease;">
+                        <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
+                <div style="font-size: 0.875rem;" class="text-gray-300 mb-4">
+                    <p class="mb-2">
+                        <strong>Aviso Profissional:</strong> As consultas de tarot são para fins de entretenimento e orientação espiritual. 
+                        Não substituem aconselhamento médico, jurídico ou financeiro profissional.
+                    </p>
+                </div>
+                <div style="font-size: 0.875rem;" class="text-gray-400">
+                    <p>&copy; 2024 Cartas da Lua. Todos os direitos reservados.</p>
+                    <p class="mt-2">
+                        © 2024 Cartas da Lua - Cartomante Espiritual. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a 
+        href="https://api.whatsapp.com/send/?phone=5535998155428&text&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-float"
+        title="Falar no WhatsApp"
+    >
+        <i class="ri-whatsapp-line"></i>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and testimonials
+        document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
